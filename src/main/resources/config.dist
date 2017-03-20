@@ -1,0 +1,14 @@
+//Client portal url
+portal_url: http://46.101.185.142
+
+//Admin portal
+admin_url: http://46.101.185.142/admin
+
+//Url for log out
+log_out_url: http://46.101.185.142/sign-out
+
+// Details page
+portal_url_details: http://46.101.185.142/statistics/details/?
+
+//path to your driver for brother
+url_to_driver: "/home/berestenko/Desktop/chromedriver"
