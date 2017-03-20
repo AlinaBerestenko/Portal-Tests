@@ -3,22 +3,11 @@ import Pages.LoginPage;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
-
 /**
- * Created by berestenko on 03.03.17.
+ * Created by berestenko on 20.03.17.
  */
-public class LoginTest extends BasicTest {
-    private LoginPage loginPage = PageFactory.initElements(getWebDriver(), LoginPage.class);
-
-
-    @Test
-    public void Login() throws Exception {
-        loginPage.open();
-        UserData user = new UserData("sample", "sample1");
-        loginPage = loginPage.loginAs(user);
-        loginPage.isLoggedIn();
-        loginPage.logOut();
-    }
+public class FailToLogin extends BasicTest{
+    private LoginPage loginPage = PageFactory.initElements(BasicTest.getWebDriver(), LoginPage.class);
 
     @Test
     public void FailToLogin() throws Exception {
@@ -31,10 +20,4 @@ public class LoginTest extends BasicTest {
         loginPage.assertAlertTittle(tittle);
         loginPage.logOut();
     }
-
 }
-
-
-
-
-
