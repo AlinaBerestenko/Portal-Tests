@@ -19,7 +19,7 @@ public class BasicTest {
 //          driver = new FirefoxDriver();
 
 //          if you need to test in Chrome
-            System.setProperty("webdriver.chrome.driver", Config.getProperty("url_to_driver"));
+         System.setProperty("webdriver.chrome.driver", Config.getProperty("url_to_driver"));
             driver = new ChromeDriver();
         }
         return driver;

@@ -16,6 +16,11 @@ public class LoginTest extends BasicTest {
         loginPage.open();
         UserData user = new UserData("sample", "sample1");
         loginPage = loginPage.loginAs(user);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         loginPage.isLoggedIn();
         loginPage.logOut();
     }

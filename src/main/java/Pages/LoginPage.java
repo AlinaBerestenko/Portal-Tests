@@ -56,17 +56,6 @@ public class LoginPage extends Page {
 
 
 
-//Recover access
-    @FindBy (css = ".btn.btn-default.pull-right")
-    public WebElement buttonRecoverAccess;
-
-    @FindBy (id = "username")
-    public WebElement fieldUsernameRecover;
-
-    @FindBy (css = ".btn.btn-primary")
-    public WebElement buttonResetPassword;
-
-
 //LOGIN METHODS
     public LoginPage loginAs(UserData user){
         fieldUsername.click();
@@ -111,14 +100,6 @@ public class LoginPage extends Page {
         driver.get(Config.getProperty("log_out_url"));
     }
 
-//RECOVER METHODS
-    public LoginPage resetPassword(UserData user){
-        buttonRecoverAccess.click();
-        fieldUsernameRecover.click();
-        type(fieldUsernameRecover, user.getUsername());
-        buttonResetPassword.click();
-        return PageFactory.initElements(driver, LoginPage.class);
-    }
 
 }
 

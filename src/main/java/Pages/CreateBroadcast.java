@@ -106,33 +106,6 @@ public class CreateBroadcast extends Page {
     public WebElement createButton;
 
 
-
-    public CreateBroadcast sendViber(BroadcastData broadcast){
-        viberCheckbox.click();
-        viberTTL.click();
-        type(viberTTL, broadcast.getTTL());
-        viberText.click();
-        type(viberText, broadcast.getText());
-        viberActionUrl.click();
-        type(viberActionUrl, broadcast.getActionUrl());
-        viberCaption.click();
-        type(viberCaption, broadcast.getCaption());
-        viberImageUrl.click();
-        type(viberImageUrl, broadcast.getImageUrl());
-        viberiosExpirityText.click();
-        type(viberiosExpirityText, broadcast.getIosExpirityText());
-
-        createButton.click();
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return PageFactory.initElements(driver, CreateBroadcast.class);
-    }
-
-
     public CreateBroadcast sendPush(BroadcastData broadcast){
         pushCheckbox.click();
         pushTTL.click();
@@ -157,6 +130,36 @@ public class CreateBroadcast extends Page {
         }
         return PageFactory.initElements(driver, CreateBroadcast.class);
     }
+
+    public CreateBroadcast sendViber(BroadcastData broadcast){
+        viberCheckbox.click();
+        viberTTL.click();
+        type(viberTTL, broadcast.getTTL());
+        viberText.click();
+        type(viberText, broadcast.getText());
+        viberActionUrl.click();
+        type(viberActionUrl, broadcast.getActionUrl());
+        viberCaption.click();
+        type(viberCaption, broadcast.getCaption());
+        viberImageUrl.click();
+        type(viberImageUrl, broadcast.getImageUrl());
+        viberiosExpirityText.click();
+        type(viberiosExpirityText, broadcast.getIosExpirityText());
+        phoneNumber.click();
+        type(phoneNumber, "380635394010");
+
+        createButton.click();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return PageFactory.initElements(driver, CreateBroadcast.class);
+    }
+
+
+
 
 
     public CreateBroadcast sendSms(BroadcastData broadcast){
