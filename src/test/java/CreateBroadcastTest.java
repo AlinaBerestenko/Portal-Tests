@@ -25,9 +25,10 @@ public class CreateBroadcastTest extends BasicTest{
         }
     }
 
-    //Push tests
+//Viber tests
+    //Valid tests
     @Test
-    public void CreatePush() throws Exception {
+    public void CreateViber() throws Exception {
         createBroadcast.open();
         try {
             Thread.sleep(1000);
@@ -36,7 +37,63 @@ public class CreateBroadcastTest extends BasicTest{
         }
         BroadcastData broadcast = new BroadcastData("10", "testPush", "Push", "http://hyber.dev", "Go to Hyber", "http://hyber.dev", "text for ios");
         createBroadcast = createBroadcast.sendViber(broadcast);
-
     }
+
+    @Test
+    public void CreateViberWithOnlyText() throws Exception {
+        createBroadcast.open();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        BroadcastData broadcast = new BroadcastData("10", "testPush");
+        createBroadcast = createBroadcast.sendViber(broadcast);
+    }
+
+    @Test
+    public void CreateViberWithOnlyImage() throws Exception {
+        createBroadcast.open();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        BroadcastData broadcast = new BroadcastData("10", "", "", "", "", "http://hyber.dev", "");
+        createBroadcast = createBroadcast.sendViber(broadcast);
+    }
+
+    @Test
+    public void CreateViberWithOnlyImage() throws Exception {
+        createBroadcast.open();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        BroadcastData broadcast = new BroadcastData("10", "", "", "", "", "http://hyber.dev", "");
+        createBroadcast = createBroadcast.sendViber(broadcast);
+    }
+
+
+    //Invalid tests
+
+
+
+
+
+//Push tests
+    //Valid tests
+
+
+
+    //Invalid tests
+
+
+
+//SMS tests
+    //Valid tests
+
+    //Invalid tests
 
 }
