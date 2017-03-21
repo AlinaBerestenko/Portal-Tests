@@ -15,12 +15,13 @@ public class BasicTest {
     protected static WebDriver getWebDriver() {
         if (driver == null) {
 //          if you need to test in FF
-//          System.setProperty("webdriver.gecko.driver","/home/berestenko/Desktop/geckodriver");
-//          driver = new FirefoxDriver();
+          System.setProperty("webdriver.gecko.driver","/home/berestenko/Desktop/geckodriver");
+          driver = new FirefoxDriver();
+          driver.manage().window().maximize();
 
 //          if you need to test in Chrome
-         System.setProperty("webdriver.chrome.driver", Config.getProperty("url_to_driver"));
-            driver = new ChromeDriver();
+//         System.setProperty("webdriver.chrome.driver", Config.getProperty("url_to_driver"));
+//            driver = new ChromeDriver();
         }
         return driver;
     }

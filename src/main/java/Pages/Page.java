@@ -3,6 +3,7 @@ package Pages;
 /**
  * Created by berestenko on 02.03.17.
  */
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,11 @@ public abstract class Page {
         } catch (NoSuchElementException e){
             return false;
         }
+    }
+
+    public void scrollToBottom() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
 }

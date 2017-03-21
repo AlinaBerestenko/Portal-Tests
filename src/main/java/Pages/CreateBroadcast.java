@@ -121,6 +121,10 @@ public class CreateBroadcast extends Page {
         pushImageUrl.click();
         type(pushImageUrl, broadcast.getImageUrl());
 
+        scrollToBottom();
+        phoneNumber.click();
+        type(phoneNumber, "380635394010");
+
         createButton.click();
 
         try {
@@ -145,6 +149,8 @@ public class CreateBroadcast extends Page {
         type(viberImageUrl, broadcast.getImageUrl());
         viberiosExpirityText.click();
         type(viberiosExpirityText, broadcast.getIosExpirityText());
+
+        scrollToBottom();
         phoneNumber.click();
         type(phoneNumber, "380635394010");
 
@@ -170,6 +176,10 @@ public class CreateBroadcast extends Page {
         type(smsText, broadcast.getText());
         smsAlphaNames.click();
         //WRITE CHOOSING NAME FROM LIST
+
+        scrollToBottom();
+        phoneNumber.click();
+        type(phoneNumber, "380635394010");
 
         createButton.click();
 
