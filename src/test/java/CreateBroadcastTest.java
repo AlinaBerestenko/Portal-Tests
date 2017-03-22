@@ -19,36 +19,23 @@ public class CreateBroadcastTest extends BasicTest{
         LoginPage loginPage = PageFactory.initElements(getWebDriver(),LoginPage.class);
         loginPage.open();
         UserData user = new UserData("sample", "sample1");
-        loginPage = loginPage.loginAs(user);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        loginPage.loginAs(user);
+
     }
 
-//Viber tests
+    //Viber tests
     //Valid tests
     @Test
     public void CreateViber() throws Exception {
         createBroadcast.open();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         BroadcastData broadcast = new BroadcastData("15", "testPush", "Push", "http://hyber.dev", "Go to Hyber", "http://hyber.dev", "text for ios");
         createBroadcast = createBroadcast.sendViber(broadcast);
+
     }
 
     @Test
     public void CreateViberWithOnlyText() throws Exception {
         createBroadcast.open();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         BroadcastData broadcast = new BroadcastData("15", "testPush", "", "", "", "", "");
         createBroadcast = createBroadcast.sendViber(broadcast);
     }
@@ -56,11 +43,6 @@ public class CreateBroadcastTest extends BasicTest{
     @Test
     public void CreateViberWithTextAndButton() throws Exception {
         createBroadcast.open();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         BroadcastData broadcast = new BroadcastData("15", "testPush", "", "http://hyber.dev", "Go to Hyber", "", "");
         createBroadcast = createBroadcast.sendViber(broadcast);
     }
@@ -68,11 +50,6 @@ public class CreateBroadcastTest extends BasicTest{
     @Test
     public void CreateViberWithImageAndIostext() throws Exception {
         createBroadcast.open();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         BroadcastData broadcast = new BroadcastData("15", "", "", "", "", "http://hyber.dev", "text for ios");
         createBroadcast = createBroadcast.sendViber(broadcast);
     }
@@ -80,11 +57,6 @@ public class CreateBroadcastTest extends BasicTest{
     @Test
     public void CreateViberWithTextAndIostext() throws Exception {
         createBroadcast.open();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         BroadcastData broadcast = new BroadcastData("15", "testPush", "", "", "", "", "text for ios");
         createBroadcast = createBroadcast.sendViber(broadcast);
     }

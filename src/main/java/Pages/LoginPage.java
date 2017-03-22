@@ -51,10 +51,6 @@ public class LoginPage extends Page {
     public WebElement alertTitle;
 
 
-    @FindBy (css = ".alert.ui-pnotify-container.alert-success.ui-pnotify-shadow")
-    public WebElement resetPasswordAlert;
-
-
 
 //LOGIN METHODS
     public LoginPage loginAs(UserData user){
@@ -63,12 +59,7 @@ public class LoginPage extends Page {
         fieldPassword.click();
         type(fieldPassword, user.getPassword());
         buttonSignin.click();
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForLoadingPage();
         return PageFactory.initElements(driver, LoginPage.class);
     }
 

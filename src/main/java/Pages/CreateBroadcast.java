@@ -51,7 +51,7 @@ public class CreateBroadcast extends Page {
 
     //PUSH SETTINGS
 
-    @FindBy(id = "message_delivery_push")
+    @FindBy(id = "message_delivery_viber")
     public WebElement pushCheckbox;
 
     @FindBy(id = "message_delivery_ttlPush")
@@ -127,15 +127,11 @@ public class CreateBroadcast extends Page {
 
         createButton.click();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return PageFactory.initElements(driver, CreateBroadcast.class);
     }
 
     public CreateBroadcast sendViber(BroadcastData broadcast){
+        waitForLoadingPage();
         viberCheckbox.click();
         viberTTL.click();
         type(viberTTL, broadcast.getTTL());
@@ -155,16 +151,11 @@ public class CreateBroadcast extends Page {
         type(phoneNumber, "380635394010");
 
         createButton.click();
+        waitForLoadingPage();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         return PageFactory.initElements(driver, CreateBroadcast.class);
     }
-
-
 
 
 
@@ -183,11 +174,6 @@ public class CreateBroadcast extends Page {
 
         createButton.click();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return PageFactory.initElements(driver, CreateBroadcast.class);
 
     }
