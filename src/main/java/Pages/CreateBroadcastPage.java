@@ -1,6 +1,7 @@
 package Pages;
 
 import Data.BroadcastDataForPush;
+import Data.BroadcastDataForSMS;
 import Data.BroadcastDataForViber;
 import Utils.Config;
 import org.openqa.selenium.WebDriver;
@@ -173,21 +174,22 @@ public class CreateBroadcastPage extends Page {
 
 
 
-    public CreateBroadcastPage sendSms(BroadcastDataForPush broadcast){
+    public CreateBroadcastPage sendSms(BroadcastDataForSMS broadcast){
+        waitForLoadingPage();
         smsCheckbox.click();
         smsTTL.click();
         type(smsTTL, broadcast.getTTL());
         smsText.click();
         type(smsText, broadcast.getText());
         smsAlphaNames.click();
-        //WRITE CHOOSING NAME FROM LIST
-
+        select(smsAlphaNames, broadcast.getOptionText());
+        waitForLoadingPage();
         scrollToBottom();
         phoneNumber.click();
         type(phoneNumber, "380635394010");
 
         createButton.click();
-
+        waitForLoadingPage();
         return PageFactory.initElements(driver, CreateBroadcastPage.class);
 
     }

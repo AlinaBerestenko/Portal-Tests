@@ -9,6 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -24,6 +25,11 @@ public abstract class Page {
     public void type(WebElement webElement, String text){
         webElement.clear();
         webElement.sendKeys(text);
+    }
+
+    public void select(WebElement webElement, String optionLocator){
+        Select dropdown= new Select(webElement);
+        dropdown.selectByVisibleText(optionLocator);
     }
 
     public abstract void open();

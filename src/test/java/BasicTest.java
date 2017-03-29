@@ -1,5 +1,6 @@
 import Utils.Config;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,7 +19,7 @@ public class BasicTest {
         if (driver == null) {
 //          if you need to test in FF
 
-          System.setProperty("webdriver.gecko.driver","/home/berestenko/Desktop/geckodriver");
+          System.setProperty("webdriver.gecko.driver", Config.getProperty("url_to_driver"));
           driver = new FirefoxDriver();
 //          driver.manage().window().maximize();
 
@@ -32,9 +33,8 @@ public class BasicTest {
     }
 
 
-
-    @After
-    public void LastTest() throws Exception {
-        driver.close();
+    @AfterClass
+    public static void LastClass() throws Exception {
+        driver.quit();
     }
 }
