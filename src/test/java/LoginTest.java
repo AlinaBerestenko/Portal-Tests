@@ -14,7 +14,7 @@ public class LoginTest extends BasicTest {
     @Test
     public void Login() throws Exception {
         loginPage.open();
-        UserData user = new UserData("sample", "sample1");
+        UserData user = new UserData("AlinaTest", "Alina123456");
         loginPage = loginPage.loginAs(user);
         loginPage.isLoggedIn();
         loginPage.logOut();
@@ -23,7 +23,7 @@ public class LoginTest extends BasicTest {
     @Test
     public void FailToLogin() throws Exception {
         loginPage.open();
-        UserData user = new UserData("sample", "sampleууу");
+        UserData user = new UserData("AlinaTest", "alfsf");
         loginPage = loginPage.loginAs(user);
         String text = "Invalid credentials.";
         String tittle = "Error";

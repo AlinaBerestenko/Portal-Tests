@@ -1,6 +1,7 @@
 package Pages;
 
-import Data.BroadcastData;
+import Data.BroadcastDataForPush;
+import Data.BroadcastDataForViber;
 import Utils.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,14 +13,15 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by berestenko on 20.03.17.
  */
-public class CreateBroadcast extends Page {
-    public CreateBroadcast(WebDriver driver) {
+public class CreateBroadcastPage extends Page {
+    public CreateBroadcastPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public void open() {
         driver.get(Config.getProperty("portal_url_create"));
+        waitForLoadingPage();
     }
 
 
@@ -51,7 +53,7 @@ public class CreateBroadcast extends Page {
 
     //PUSH SETTINGS
 
-    @FindBy(id = "message_delivery_viber")
+    @FindBy(id = "message_delivery_push")
     public WebElement pushCheckbox;
 
     @FindBy(id = "message_delivery_ttlPush")
@@ -105,8 +107,21 @@ public class CreateBroadcast extends Page {
     @FindBy(css = ".btn.btn-primary.pull-right")
     public WebElement createButton;
 
+    //ALERT
 
-    public CreateBroadcast sendPush(BroadcastData broadcast){
+    @FindBy(css =".ui-pnotify-title")
+    public WebElement alertTitle;
+
+    @FindBy(css = ".ui-pnotify-text")
+    public WebElement alertText;
+
+    //Errors
+    @FindBy(css = "ul.list-unstyled.help-block>li")
+    public WebElement errorText;
+
+
+    public CreateBroadcastPage sendPush(BroadcastDataForPush broadcast){
+        waitForLoadingPage();
         pushCheckbox.click();
         pushTTL.click();
         type(pushTTL, broadcast.getTTL());
@@ -126,11 +141,12 @@ public class CreateBroadcast extends Page {
         type(phoneNumber, "380635394010");
 
         createButton.click();
+        waitForLoadingPage();
 
-        return PageFactory.initElements(driver, CreateBroadcast.class);
+        return PageFactory.initElements(driver, CreateBroadcastPage.class);
     }
 
-    public CreateBroadcast sendViber(BroadcastData broadcast){
+    public CreateBroadcastPage sendViber(BroadcastDataForViber broadcast){
         waitForLoadingPage();
         viberCheckbox.click();
         viberTTL.click();
@@ -152,14 +168,12 @@ public class CreateBroadcast extends Page {
 
         createButton.click();
         waitForLoadingPage();
-
-
-        return PageFactory.initElements(driver, CreateBroadcast.class);
+        return PageFactory.initElements(driver, CreateBroadcastPage.class);
     }
 
 
 
-    public CreateBroadcast sendSms(BroadcastData broadcast){
+    public CreateBroadcastPage sendSms(BroadcastDataForPush broadcast){
         smsCheckbox.click();
         smsTTL.click();
         type(smsTTL, broadcast.getTTL());
@@ -174,8 +188,23 @@ public class CreateBroadcast extends Page {
 
         createButton.click();
 
-        return PageFactory.initElements(driver, CreateBroadcast.class);
+        return PageFactory.initElements(driver, CreateBroadcastPage.class);
 
+    }
+
+    public CreateBroadcastPage assertAlertText(String text){
+        assertEquals(text, alertText.getText());
+        return PageFactory.initElements(driver, CreateBroadcastPage.class);
+    }
+
+    public CreateBroadcastPage assertAlertTitle(String title){
+        assertEquals(title, alertTitle.getText());
+        return PageFactory.initElements(driver, CreateBroadcastPage.class);
+    }
+
+    public CreateBroadcastPage assertError(String text){
+        assertEquals(text, errorText.getText());
+        return PageFactory.initElements(driver, CreateBroadcastPage.class);
     }
 
 
