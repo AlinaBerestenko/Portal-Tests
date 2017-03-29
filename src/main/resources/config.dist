@@ -10,5 +10,8 @@ log_out_url: http://46.101.185.142/sign-out
 // Details page
 portal_url_details: http://46.101.185.142/statistics/details/?
 
+//CreateBroadcast page
+portal_url_create: http://hyber.dev/broadcast/create
+
 //path to your driver for brother
 url_to_driver: "/home/berestenko/Desktop/chromedriver"
